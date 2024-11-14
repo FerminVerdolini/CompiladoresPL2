@@ -1,54 +1,49 @@
-lexer grammar MiniBLexer;
+parser grammar MiniBParser;
 
-// Palabras clave (insensibles a mayúsculas y minúsculas)
-FOR:      [fF] [oO] [rR];
-TO:       [tT] [oO];
-NEXT:     [nN] [eE] [xX] [tT];
-IF:       [iI] [fF];
-THEN:     [tT] [hH] [eE] [nN];
-ELSE:     [eE] [lL] [sS] [eE];
-WHILE:    [wW] [hH] [iI] [lL] [eE];
-DO:       [dD] [oO];
-END:      [eE] [nN] [dD];
-PRINT:    [pP] [rR] [iI] [nN] [tT];
-INPUT:    [iI] [nN] [pP] [uU] [tT];
-LET:      [lL] [eE] [tT];
-MOD:      [mM] [oO] [dD];
-CONTINUE: [cC] [oO] [nN] [tT] [iI] [nN] [uU] [eE];
-EXIT:     [eE] [xX] [iI] [tT];
-REPEAT:   [rR] [eE] [pP] [eE] [aA] [tT];
-UNTIL:    [uU] [nN] [tT] [iI] [lL];
+options { tokenVocab=MiniBLexer; }
 
-// Funciones
-VAL:   [vV] [aA] [lL];
-LEN:   [lL] [eE] [nN];
-ISNAN: [iI] [sS] [nN] [aA] [nN];
+// Regla principal del programa
+programa: statement+;
 
-// Operadores y símbolos
-EQUAL: '=';
-PLUS: '+';
-MINUS: '-';
-MULT: '*';
-DIV: '/';
-LT: '<';
-GT: '>';
-LTE: '<=';
-GTE: '>=';
-EQ: '==';
-NEQ: '!=';
-LPAREN: '(';
-RPAREN: ')';
-COMMA: ',';
-QUOTE: '"';
+// Declaraciones posibles en MiniB
+statement: forStatement
+         | ifStatement
+         | whileStatement
+         | printStatement
+         | inputStatement
+         | letStatement
+         | repeatStatement
+         ;
 
-// Identificadores y literales
-IDENTIFIER: [a-zA-Z_][a-zA-Z0-9_]*; // Identificadores
-NUMBER: [0-9]+;                    // Números enteros
-STRING: '"' .*? '"';                // Cadenas
+// Bucle FOR
+forStatement: FOR IDENTIFIER EQUAL expression TO expression (statement* | CONTINUE | EXIT) NEXT;
 
-// Ignorar espacios y saltos de línea
-WS: [ \t\r\n]+ -> skip;             
+// Declaración condicional IF-ELSE
+ifStatement: IF condition THEN (statement+ | CONTINUE | EXIT) (ELSE (statement+ | CONTINUE | EXIT))? END;
 
-// Ignorar comentarios estilo REM
-COMMENT: 'REM' ~[\r\n]* -> skip;    
+// Bucle WHILE
+whileStatement: WHILE condition (statement* | CONTINUE | EXIT) END;
 
+// Declaración de impresión
+printStatement: PRINT expression (PLUS expression)*;
+
+// Declaración de entrada de usuario
+inputStatement: INPUT STRING IDENTIFIER;
+
+// Declaración LET (asignación de variable)
+letStatement: (LET)? IDENTIFIER EQUAL expression;
+
+// Declaración REPEAT-UNTIL
+repeatStatement: REPEAT statement+ UNTIL condition;
+
+// Expresiones y condiciones
+condition: expression ((LT | LTE | GT | GTE | EQ | NEQ) expression)?;
+expression: term ((PLUS | MINUS) term)*;
+term: factor ((MULT | DIV | MOD) factor)*;
+factor: NUMBER 
+      | IDENTIFIER 
+      | LPAREN expression RPAREN 
+      | STRING
+      | VAL LPAREN expression RPAREN
+      | LEN LPAREN expression RPAREN
+      | ISNAN LPAREN expression RPAREN;
