@@ -34,14 +34,15 @@ LT: '<';
 LTE: '<=';
 GT: '>';
 GTE: '>=';
-LTE: '<=';
-GTE: '>=';
 EQ: '==';
 NEQ: '!=';
 LPAREN: '(';
 RPAREN: ')';
 COMMA: ',';
 QUOTE: '"';
+AND: [Aa] [Nn] [Dd];
+OR: [Oo] [Rr];
+NOT: [Nn] [Oo] [Tt];
 
 // Identificadores y literales
 IDENTIFIER: [a-zA-Z_][a-zA-Z0-9_]*; // Identificadores

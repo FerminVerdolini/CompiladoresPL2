@@ -16,13 +16,13 @@ statement: forStatement
          ;
 
 // Bucle FOR
-forStatement: FOR IDENTIFIER EQUAL expression TO expression (statement* | CONTINUE | EXIT) NEXT;
+forStatement: FOR IDENTIFIER EQUAL expression TO expression bloqueControl NEXT;
 
 // Declaración condicional IF-ELSE
-ifStatement: IF condition THEN (statement+ | CONTINUE | EXIT) (ELSE (statement+ | CONTINUE | EXIT))? END;
+ifStatement: IF condition THEN bloqueControl (ELSE bloqueControl)? END;
 
 // Bucle WHILE
-whileStatement: WHILE condition (statement* | CONTINUE | EXIT) END;
+whileStatement: WHILE condition bloqueControl END;
 
 // Declaración de impresión
 printStatement: PRINT expression (PLUS expression)*;
@@ -36,8 +36,14 @@ letStatement: (LET)? IDENTIFIER EQUAL expression;
 // Declaración REPEAT-UNTIL
 repeatStatement: REPEAT statement+ UNTIL condition;
 
+// Operadores Lógicos
+logicalOp: AND | OR | NOT;
+
+// Bloque de código reutilizable (para funciones y estructuras de control)
+bloqueControl: (statement+ | CONTINUE | EXIT);
+
 // Expresiones y condiciones
-condition: expression ((LT | LTE | GT | GTE | EQ | NEQ) expression)?;
+condition: expression ((LT | LTE | GT | GTE | EQ | NEQ) expression)? (logicalOp condition)?;
 expression: term ((PLUS | MINUS) term)*;
 term: factor ((MULT | DIV | MOD) factor)*;
 factor: NUMBER 
