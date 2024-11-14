@@ -2,6 +2,8 @@ import org.antlr.v4.runtime.*;
 import org.antlr.v4.runtime.tree.*; 
 
 import java.io.FileInputStream;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.io.InputStream;
 
 public class Analizador {
@@ -47,6 +49,19 @@ public class Analizador {
         AnalizadorListener escuchador = new AnalizadorListener();
 
         walker.walk(escuchador, tree);
+
+        // Imprimir el resultado en la terminal
+        System.out.println(escuchador.getFormattedOutput());
+
+        // Guardar el resultado en un archivo
+        try (FileWriter fileWriter = new FileWriter("output.txt")) {
+            fileWriter.write(escuchador.getFormattedOutput());
+        } catch (IOException e) {
+            System.err.println("Error al guardar el archivo: " + e.getMessage());
+        }
+
+        //JSONObject mapaTesoroJSON = listener.getMapaTesoro();
+        //System.out.println(mapaTesoroJSON.toString(4)); // Imprimir JSON con sangría
 
         // Mostrar el árbol por consola:
         //System.out.println(tree.toStringTree(parser));
