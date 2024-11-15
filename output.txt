@@ -1,40 +1,35 @@
-config_mapa:
-    titulo:
-        nombre_mapa: Mapa del Tesoro
-    tamaño:
-        ancho: 5
-        alto: 5
-
-instruccion
-    barco
-        nombre_barco: El Titanic
-    ubicacion:
-        pos_x: 1
-        pos_y: 2
-
-instruccion
-    barco
-        nombre_barco: El Titanic
-    puntuacion: +50
-
-instruccion
-    barco
-        nombre_barco: El Santa Maria
-    ubicacion:
-        pos_x: 2
-        pos_y: 3
-
-instruccion
-    barco
-        nombre_barco: El Santa Maria
-    puntuacion: +10
-
-instruccion
-    mina: Una mina
-    puntuacion: -2
-
-instruccion
-    mina: Una mina
-    ubicacion:
-        pos_x: 3
-        pos_y: 3
+MAPA
+    CONFIG_MAPA
+        TITULO: "Mapa del Tesoro"
+        TAMAÑO
+            ANCHO: 5
+            LARGO: 5
+    INSTRUCCION
+        BARCO: "El Titanic"
+        PUNTUACION: + 50 
+        UBICACION
+            POS_X: 1
+            POS_Y: 1
+    INSTRUCCION
+        BARCO: "El Santa Maria"
+        UBICACION
+            POS_X: 2
+            POS_Y: 3
+    INSTRUCCION
+        BARCO: "El Santa Maria"
+        PUNTUACION: + 10 
+    INSTRUCCION
+        BARCO: "La chatarra"
+        UBICACION
+            POS_X: 4
+            POS_Y: 1
+            POS_X: 4
+            POS_Y: 2
+    INSTRUCCION
+        MINA: Una mina
+        PUNTUACION: -2 
+    INSTRUCCION
+        MINA: Una mina
+        UBICACION
+            POS_X: 3
+            POS_Y: 3

@@ -13,15 +13,21 @@ tamaño:  ancho POR largo;
 ancho: NUMERO;
 largo: NUMERO;
 
-instruccion: (barco TE_DA? | mina TE_RESTA?) ( puntuacion PUNTOS | ESTA_ENTERRADO ubicacion) SALTO?;
+instruccion: (barco TE_DA? | mina TE_RESTA?) (puntuacion PUNTOS)? Y? (ubicacion)? SALTO?;
 barco: COMILLAS nombre_barco COMILLAS_CIERRE;
 nombre_barco: NOMBRE;
 mina: LA_MINA;
 
 // Regla para puntuación
 puntuacion: NUMERO;
-// Regla para ubicación
-ubicacion: pos_x COMA pos_y;
+
+// Reglas para ubicación
+ubicacion: ESTA_ENTERRADO (ubicacion_simple | ubicacion_compuesta);
+
+ubicacion_simple: (EN pos_x COMA pos_y);
+ubicacion_compuesta: (DESDE pos_x COMA pos_y HASTA pos_x COMA pos_y);
+
+
 // Posiciones (coordenadas)
 pos_x: NUMERO;
 pos_y: NUMERO;

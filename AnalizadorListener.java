@@ -91,13 +91,13 @@ public class AnalizadorListener extends MapaTesoroParserBaseListener {
     @Override
     public void enterPuntuacion(MapaTesoroParser.PuntuacionContext ctx) {
         String puntuacion = ctx.getText();
-    
+
         if (isBarco) {
-            appendWithIndentation("PUNTUACION: + " + puntuacion); // Si es un barco, puntuación positiva
+            appendWithIndentation(String.format("PUNTUACION: + %d puntos", Integer.parseInt(puntuacion))); // Si es un barco, puntuación positiva
         } else if (isMina) {
-            appendWithIndentation("PUNTUACION: - " + puntuacion); // Si es una mina, puntuación negativa
+            appendWithIndentation(String.format("PUNTUACION: - %d puntos", Integer.parseInt(puntuacion))); // Si es un barco, puntuación positiva
         } else {
-            appendWithIndentation("PUNTUACION: " + puntuacion); // Caso genérico
+            appendWithIndentation(String.format("PUNTUACION: %d puntos", Integer.parseInt(puntuacion))); // Si es un barco, puntuación positiva
         }
     }
 

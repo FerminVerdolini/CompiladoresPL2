@@ -6,8 +6,12 @@ LA_MINA: 'Una mina';                // 'La mina' como palabra clave
 PUNTOS: 'puntos';                  // La palabra 'puntos'
 TE_DA: 'te da';                    // 'te da' como palabra clave
 TE_RESTA: 'te resta';              // 'te resta' como palabra clave
-ESTA_ENTERRADO: 'está '('enterrado'|'enterrada') ' en'; // 'está enterrado en' como palabra clave
+ESTA_ENTERRADO: 'está '('enterrado'|'enterrada'); // 'está enterrado en' como palabra clave
+EN: 'en';                         // 'en' como palabra clave
+DESDE: 'desde';                   // 'desde' como palabra clave
+HASTA: 'hasta';                   // 'hasta' como palabra clave
 POR: 'por';                        // 'por' como palabra clave
+Y: 'y';                           // 'y' como palabra clave
 COMA: ',';                         // Coma para separar coordenadas
 NUMERO: [0-9]+;                    // Cualquier número
 SALTO: [\n\r];               // Fin de la asignación (salto de línea)
