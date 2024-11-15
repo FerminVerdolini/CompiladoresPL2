@@ -25,24 +25,24 @@ LEN:   [lL] [eE] [nN];
 ISNAN: [iI] [sS] [nN] [aA] [nN];
 
 // Operadores y símbolos
-EQUAL:  '=';
-PLUS:   '+';
-MINUS:  '-';
-MULT:   '*';
-DIV:    '/';
-LT:     '<';
-LTE:    '<=';
-GT:     '>';
-GTE:    '>=';
-EQ:     '==';
-NEQ:    '!=';
+EQUAL: '=';
+PLUS: '+';
+MINUS: '-';
+MULT: '*';
+DIV: '/';
+LT: '<';
+LTE: '<=';
+GT: '>';
+GTE: '>=';
+EQ: '==';
+NEQ: '!=';
 LPAREN: '(';
 RPAREN: ')';
-COMMA:  ',';
-QUOTE:  '"';
-AND:    [Aa] [Nn] [Dd];
-OR:     [Oo] [Rr];
-NOT:    [Nn] [Oo] [Tt];
+COMMA: ',';
+QUOTE: '"';
+AND: [Aa] [Nn] [Dd];
+OR: [Oo] [Rr];
+NOT: [Nn] [Oo] [Tt];
 
 // Identificadores y literales
 IDENTIFIER: [a-zA-Z_][a-zA-Z0-9_]*; // Identificadores
