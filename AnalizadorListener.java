@@ -31,8 +31,9 @@ public class AnalizadorListener extends MapaTesoroParserBaseListener {
     private String nombreMapa;
 
     private int height = 10;
-    
     private int width = 10;
+
+    private int shoots = 5;
     
     private HashMap<String,Set<Point>> shipsPositions;// 
     private HashMap<String,Integer> shipsPoints ;//    
@@ -105,6 +106,13 @@ public class AnalizadorListener extends MapaTesoroParserBaseListener {
         this.height = Integer.parseInt(ctx.getText());
     }
     
+    @Override
+    public void enterTurnos(MapaTesoroParser.TurnosContext ctx) {
+        appendWithIndentation("TURNOS: " + ctx.NUMERO().getText());
+        this.shoots = Integer.parseInt(ctx.getText());
+    }
+    
+
     @Override
     public void enterInstruccion(MapaTesoroParser.InstruccionContext ctx) {
         appendWithIndentation("INSTRUCCION");
@@ -252,6 +260,10 @@ public class AnalizadorListener extends MapaTesoroParserBaseListener {
 
     public String getNombreMapa() {
         return nombreMapa;
+    }
+
+    public int getShoots() {
+        return shoots;
     }
 
 }
