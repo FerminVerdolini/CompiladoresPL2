@@ -7,7 +7,7 @@ public class AnalizadorListener extends MapaTesoroParserBaseListener {
     private StringBuilder output = new StringBuilder(); // Para almacenar la salida formateada
     private int indentationLevel = 0; // Control de la tabulación
     private final String INDENT = "    "; // Espaciado base para cada nivel de indentación
-    private final String SEP = ": "; // Separador entre las reglas y los terminales
+    // "arador entre las reglas y los terminales
 
     private boolean isBarco = false; // True si estamos procesando un barco
     private boolean isMina = false;  // True si estamos procesando una mina
@@ -44,7 +44,7 @@ public class AnalizadorListener extends MapaTesoroParserBaseListener {
 
     @Override
     public void enterTitulo(MapaTesoroParser.TituloContext ctx) {
-        appendWithIndentation("TITULO" + SEP + ctx.getText());
+        appendWithIndentation("TITULO: " + ctx.getText());
     }
 
     @Override
@@ -60,12 +60,12 @@ public class AnalizadorListener extends MapaTesoroParserBaseListener {
 
     @Override
     public void enterAncho(MapaTesoroParser.AnchoContext ctx) {
-        appendWithIndentation("ANCHO" + SEP + ctx.getText());
+        appendWithIndentation("ANCHO: " + ctx.getText());
     }
 
     @Override
     public void enterLargo(MapaTesoroParser.LargoContext ctx) {
-        appendWithIndentation("LARGO" + SEP + ctx.getText());
+        appendWithIndentation("LARGO: " + ctx.getText());
     }
 
     @Override
@@ -83,7 +83,7 @@ public class AnalizadorListener extends MapaTesoroParserBaseListener {
 
     @Override
     public void enterBarco(MapaTesoroParser.BarcoContext ctx) {
-        appendWithIndentation("BARCO" + SEP + ctx.getText());
+        appendWithIndentation("BARCO: " + ctx.getText());
         isBarco = true;
     }
 
@@ -114,17 +114,17 @@ public class AnalizadorListener extends MapaTesoroParserBaseListener {
 
     @Override
     public void enterPos_x(MapaTesoroParser.Pos_xContext ctx) {
-        appendWithIndentation("POS_X" + SEP + ctx.getText());
+        appendWithIndentation("POS_X: " + ctx.getText());
     }
 
     @Override
     public void enterPos_y(MapaTesoroParser.Pos_yContext ctx) {
-        appendWithIndentation("POS_Y" + SEP + ctx.getText());
+        appendWithIndentation("POS_Y: " + ctx.getText());
     }
 
     @Override
     public void enterMina(MapaTesoroParser.MinaContext ctx) {
-        appendWithIndentation("MINA" + SEP + ctx.getText());
+        appendWithIndentation("MINA: " + ctx.getText());
         isMina = true;
     }
 

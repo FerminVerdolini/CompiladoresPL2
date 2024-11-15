@@ -1,0 +1,15 @@
+PROGRAMA
+    STATEMENT
+        INPUT_STATEMENT
+            INPUT
+            "Name: "
+            name
+    STATEMENT
+        PRINT_STATEMENT
+            PRINT
+            EXPRESSION
+                FACTOR
+                    "Hello "
+                +
+                FACTOR
+                    name

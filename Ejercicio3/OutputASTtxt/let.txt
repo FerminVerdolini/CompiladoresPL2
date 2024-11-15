@@ -1,0 +1,30 @@
+PROGRAMA
+    STATEMENT
+        LET_STATEMENT
+            LET
+            string
+            =
+            EXPRESSION
+                FACTOR
+                    "foo"
+    STATEMENT
+        LET_STATEMENT
+            LET
+            numeric
+            =
+            EXPRESSION
+                FACTOR
+                    123
+    STATEMENT
+        LET_STATEMENT
+            LET
+            nan
+            =
+            EXPRESSION
+                FACTOR
+                    VAL
+                    (
+                    EXPRESSION
+                        FACTOR
+                            "Not A Number"
+                    )

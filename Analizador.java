@@ -38,32 +38,19 @@ public class Analizador {
         // generamos el árbol a partir del axioma de la gramática
         ParseTree tree = parser.mapa();
 
-        // Recorrer el arbol:
-        // 1- Inicializar un recorredor
-        // 2- Inicializar mi escuchador
-        // 3- Recorrer el arbol
-
-        // 1
+        // Recorremos el arbol
         ParseTreeWalker walker = new ParseTreeWalker();
-        //2
-        AnalizadorListener escuchador = new AnalizadorListener();
+        AnalizadorListener listener = new AnalizadorListener();
+        walker.walk(listener, tree);
 
-        walker.walk(escuchador, tree);
-
-        // Imprimir el resultado en la terminal
-        System.out.println(escuchador.getFormattedOutput());
+        // Imprimimos el resultado en la terminal
+        System.out.println(listener.getFormattedOutput());
 
         // Guardar el resultado en un archivo
         try (FileWriter fileWriter = new FileWriter("output.txt")) {
-            fileWriter.write(escuchador.getFormattedOutput());
+            fileWriter.write(listener.getFormattedOutput());
         } catch (IOException e) {
             System.err.println("Error al guardar el archivo: " + e.getMessage());
         }
-
-        //JSONObject mapaTesoroJSON = listener.getMapaTesoro();
-        //System.out.println(mapaTesoroJSON.toString(4)); // Imprimir JSON con sangría
-
-        // Mostrar el árbol por consola:
-        //System.out.println(tree.toStringTree(parser));
     }
 }

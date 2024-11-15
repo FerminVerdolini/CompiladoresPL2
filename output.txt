@@ -6,7 +6,7 @@ MAPA
             LARGO: 5
     INSTRUCCION
         BARCO: "El Titanic"
-        PUNTUACION: + 50 
+        PUNTUACION: + 50 puntos
         UBICACION
             POS_X: 1
             POS_Y: 1
@@ -17,7 +17,7 @@ MAPA
             POS_Y: 3
     INSTRUCCION
         BARCO: "El Santa Maria"
-        PUNTUACION: + 10 
+        PUNTUACION: + 10 puntos
     INSTRUCCION
         BARCO: "La chatarra"
         UBICACION
@@ -27,7 +27,7 @@ MAPA
             POS_Y: 2
     INSTRUCCION
         MINA: Una mina
-        PUNTUACION: -2 
+        PUNTUACION: - 2 puntos
     INSTRUCCION
         MINA: Una mina
         UBICACION

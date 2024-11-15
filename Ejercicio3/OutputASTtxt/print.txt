@@ -1,0 +1,7 @@
+PROGRAMA
+    STATEMENT
+        PRINT_STATEMENT
+            PRINT
+            EXPRESSION
+                FACTOR
+                    "Hello world!"

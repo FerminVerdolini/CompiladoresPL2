@@ -1,0 +1,21 @@
+PROGRAMA
+    STATEMENT
+        FOR_STATEMENT
+            FOR
+            i
+            =
+            EXPRESSION
+                FACTOR
+                    1
+            TO
+            EXPRESSION
+                FACTOR
+                    5
+            BLOQUE_CONTROL
+                STATEMENT
+                    PRINT_STATEMENT
+                        PRINT
+                        EXPRESSION
+                            FACTOR
+                                i
+            NEXT
