@@ -1,0 +1,9 @@
+PROGRAMA
+    STATEMENT
+        LET_STATEMENT
+            LET
+            Error: <missing IDENTIFIER>
+            =
+            EXPRESSION
+                FACTOR
+                    1

@@ -1,4 +1,7 @@
+import org.antlr.v4.runtime.ParserRuleContext;
+import org.antlr.v4.runtime.tree.ErrorNode;
 import org.antlr.v4.runtime.tree.TerminalNode;
+
 
 public class MiniBListener extends MiniBParserBaseListener {
 
@@ -142,6 +145,12 @@ public class MiniBListener extends MiniBParserBaseListener {
         if (indentationLevel > 0) {
             appendWithIndentation(node.getText());
         }
+    }
+
+    @Override
+    public void visitErrorNode(ErrorNode node) {
+        // Si hay un error, lo imprimimos
+        appendWithIndentation("ERROR: " + node.getText());
     }
 
     // Método para obtener la salida formateada

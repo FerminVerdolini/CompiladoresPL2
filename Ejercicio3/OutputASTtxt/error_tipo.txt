@@ -1,0 +1,18 @@
+PROGRAMA
+    STATEMENT
+        LET_STATEMENT
+            LET
+            x
+            =
+            EXPRESSION
+                FACTOR
+                    "1"
+    STATEMENT
+        PRINT_STATEMENT
+            PRINT
+            EXPRESSION
+                FACTOR
+                    x
+                -
+                FACTOR
+                    1
