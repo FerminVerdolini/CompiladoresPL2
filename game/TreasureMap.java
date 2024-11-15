@@ -80,7 +80,6 @@ public class TreasureMap {
 
     public static void removeShip(Ship t){
         ships.remove(t);
-        System.out.println(t + " Removed");
     }
     
     public static boolean addMine(Mine mine) {
@@ -113,7 +112,6 @@ public class TreasureMap {
 
     public static void removeMine(Mine m){
         mines.remove(m);
-        System.out.println(m + " Removed");
     }
 
     public static boolean isEmpyOfObjects(){

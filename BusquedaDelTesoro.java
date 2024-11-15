@@ -1,7 +1,6 @@
 import game.Mine;
 import game.Player;
 import game.Ship;
-import game.Treasure;
 import game.TreasureMap;
 import java.awt.Point;
 import java.util.HashMap;
@@ -19,16 +18,6 @@ import java.io.InputStream;
 import java.lang.invoke.SwitchPoint;
 import java.net.http.WebSocket;
 import javax.swing.text.Position;
-/*
- * TODO:    
- *          - opcional* printear el mapa y agregar resultados a un log
- *          - leer los listeners
- *          - solicitar el nombre
- *          - Cambiar el nombre de trasure a Ship
- *          - Agregar combrovaciones al crear tesoros y minas, para que no puedan estar fuera y para que los tesoros sean consecutivos
- *          - Poner el nombre del mapa por pantalla
- */
-
 
 public class BusquedaDelTesoro {
     
@@ -78,8 +67,6 @@ public class BusquedaDelTesoro {
 
         TreasureMap.createMap(listener.getWidth(), listener.getHeight());
 
-        System.out.println(TreasureMap.getHeight() +" "+ TreasureMap.getWidth());
-
         for (String name : listener.getShipsPoints().keySet()) {
 
             if (listener.getShipsPositions().containsKey(name)) {
@@ -101,14 +88,13 @@ public class BusquedaDelTesoro {
         }
         
         Scanner scanner = new Scanner(System.in);
-        System.out.print(GREEN +"Bienvenido al Juego: Busqueda del tesoro");
-        System.out.print("Nombre del mapa: "+ listener.getNombreMapa() + " tamaño: "+ listener.getWidth() + " por "+ listener.getHeight()+ RESET+"\n\n");
-
+        System.out.println(GREEN +"Bienvenido al Juego: Busqueda del tesoro");
+        System.out.println("Nombre del mapa: "+ listener.getNombreMapa() + " tamaño: "+ listener.getWidth() + " por "+ listener.getHeight()+ RESET+"\n\n");
 
         System.out.print("Por favor, ingresa su nombre: ");
         String name = scanner.nextLine(); // Leer la línea completa de texto
 
-        Player player = new Player(name, 100);
+        Player player = new Player(name, listener.getShoots());
 
         // Display initial state
         System.out.println(BLUE + player + RESET);
@@ -138,7 +124,7 @@ public class BusquedaDelTesoro {
 
         // End game
         System.out.println(MAGENTA + "Game Over. Final score: " + player.getScore() + RESET);
-        agregarPuntuacion(listener.getNombreMapa()+".txt", player.getName() + "scored: " + player.getScore());
+        agregarPuntuacion(listener.getNombreMapa()+".txt", player.getName() + " puntuo : " + player.getScore());
         scanner.close();
     }
 

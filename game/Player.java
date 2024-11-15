@@ -41,7 +41,7 @@ public class Player {
                     if(t.removePart(shot)){ //si se hundio todo el barco
                         TreasureMap.removeShip(t); // Creo que no hace falta
                         score += t.getPoints();
-                        System.out.println(t + " recuperado! jugador: "+ name +" suma "+ t.getPoints() + "puntos");    
+                        System.out.println("\033[32m" + t + " recuperado! jugador: "+ name +" suma "+ t.getPoints() + " puntos");    
                     }
                 }else{
                     
@@ -51,14 +51,14 @@ public class Player {
                         m.setFounded(true);
                         TreasureMap.removeMine(m); // Creo que no hace falta
                         score -= Mine.getPoints();
-                        System.out.println(m + " encontrada! jugador: "+ name +" resta "+ Mine.getPoints() + "puntos");    
+                        System.out.println("\033[33m" + m + " encontrada! jugador: "+ name +" resta "+ Mine.getPoints() + " puntos" + "\033[0m");    
                     }else{
-                        System.out.println("Disparo al agua");    
+                        System.out.println("\033[34m" + "Disparo al agua" + "\033[0m");    
                     }
                 }
                 shotsLeft--;
             }else{
-                System.out.println("Invalid position, try again!");    
+                System.out.println("\033[31m" + " La posicion no es valida porque ya fue disparada o porque esta fuera de los limites!" + "\033[0m");    
             }    
         }else {
             System.out.println("No shots left!");
