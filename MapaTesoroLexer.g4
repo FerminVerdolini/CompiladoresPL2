@@ -17,6 +17,8 @@ NUMERO: [0-9]+;                    // Cualquier número
 SALTO: [\n\r];               // Fin de la asignación (salto de línea)
 ESPACIO: [ \t\r]+ -> skip;         // Ignorar espacios y saltos de línea
 DE_TAMAÑO: 'de tamaño';            // 'de tamaño' como palabra clave
+CON: 'con';
+TURNOS: 'turnos';
 
 COMENTARIOABRIR: '/*' -> pushMode(COMENTARIO_MULTILINEA_MODE);
 COMENTARIOLINEA: '//' -> pushMode(COMENTARIO_LINEA_MODE);

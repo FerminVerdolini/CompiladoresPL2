@@ -5,13 +5,15 @@ options { tokenVocab=MapaTesoroLexer; }
 // Regla principal para el mapa
 mapa: config_mapa? (instruccion | comentario | SALTO)*;
 
-config_mapa: titulo (DE_TAMAÑO tamaño)? SALTO;
+config_mapa: titulo (DE_TAMAÑO tamaño)? (CON turnos TURNOS)? SALTO ;
 
 titulo: COMILLAS nombre_mapa COMILLAS_CIERRE;
 nombre_mapa: NOMBRE;
 tamaño:  ancho POR largo;
 ancho: NUMERO;
 largo: NUMERO;
+
+turnos: NUMERO;
 
 instruccion: (barco TE_DA? | mina TE_RESTA?) (puntuacion PUNTOS)? Y? (ubicacion)? SALTO?;
 barco: COMILLAS nombre_barco COMILLAS_CIERRE;
